@@ -1,5 +1,5 @@
 import winston from "winston";
-import { NODE_ENV } from "$env/static/private";
+import * as env from "$env/static/private";
 
 const { combine, timestamp, colorize, printf, uncolorize } = winston.format;
 
@@ -11,7 +11,7 @@ const formatter = printf(({ level, message, timestamp, ...meta }) => {
 });
 
 export const logger = winston.createLogger({
-	level: NODE_ENV === "production" ? "info" : "debug",
+	level: env.NODE_ENV === "production" ? "info" : "debug",
 	format: combine(timestamp(), uncolorize(), formatter),
 	transports: [
 		new winston.transports.File({
@@ -32,7 +32,7 @@ export const logger = winston.createLogger({
 	]
 });
 
-if (NODE_ENV !== "production") {
+if (env.NODE_ENV !== "production") {
 	logger.add(
 		new winston.transports.Console({ format: combine(colorize(), timestamp(), formatter) })
 	);

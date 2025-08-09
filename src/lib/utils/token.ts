@@ -1,6 +1,6 @@
 import JWT from "jsonwebtoken";
 import { logger } from "$lib/utils/logger";
-import { JWT_ACCESS_TOKEN_SECRET, JWT_REFRESH_TOKEN_SECRET } from "$env/static/private";
+import * as env from "$env/static/private";
 
 interface TokenPayload {
 	_id: string;
@@ -10,7 +10,7 @@ interface TokenPayload {
 
 function generateRefreshToken(tokenPayload: TokenPayload) {
 	try {
-		return JWT.sign(tokenPayload, JWT_REFRESH_TOKEN_SECRET, {
+		return JWT.sign(tokenPayload, env.JWT_REFRESH_TOKEN_SECRET, {
 			expiresIn: "7d",
 			algorithm: "HS256"
 		});
@@ -22,7 +22,7 @@ function generateRefreshToken(tokenPayload: TokenPayload) {
 
 function generateAccessToken(_id: string) {
 	try {
-		return JWT.sign({ _id }, JWT_ACCESS_TOKEN_SECRET, {
+		return JWT.sign({ _id }, env.JWT_ACCESS_TOKEN_SECRET, {
 			expiresIn: "15m",
 			algorithm: "HS256"
 		});

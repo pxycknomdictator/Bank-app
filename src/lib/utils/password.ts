@@ -1,8 +1,8 @@
 import argon2 from "argon2";
 import { logger } from "./logger";
-import { ARGON2_SECRET } from "$env/static/private";
+import * as env from "$env/static/private";
 
-const secretBuffer = Buffer.from(ARGON2_SECRET, "utf-8");
+const secretBuffer = Buffer.from(env.ARGON2_SECRET, "utf-8");
 
 const argon2Options = {
 	type: argon2.argon2id,
