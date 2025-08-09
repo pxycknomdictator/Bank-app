@@ -24,6 +24,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
+		"@types/node": "^24.2.1",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^3.0.0",
@@ -45,6 +46,7 @@
 		]
 	},
 	"dependencies": {
+		"argon2": "^0.43.1",
 		"mongoose": "^8.17.1",
 		"winston": "^3.17.0"
 	}
