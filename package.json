@@ -45,6 +45,7 @@
 		]
 	},
 	"dependencies": {
+		"mongoose": "^8.17.1",
 		"winston": "^3.17.0"
 	}
 }
