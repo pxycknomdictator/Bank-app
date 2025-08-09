@@ -8,7 +8,7 @@ export async function database() {
 	try {
 		const { connection } = await mongoose.connect(env.DATABASE);
 		const { name, host, port } = connection;
-		logger.info("Database is connected", { name, host, port });
+		logger.info("db.ts -> Database is connected", { name, host, port });
 
 		return connection;
 	} catch (error) {
