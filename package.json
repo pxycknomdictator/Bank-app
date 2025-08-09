@@ -43,5 +43,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"winston": "^3.17.0"
 	}
 }
