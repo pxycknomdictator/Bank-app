@@ -20,9 +20,19 @@ interface UserSchema extends Document {
 }
 
 const accountLinkedSchema = new Schema<LinkedAccount>({
-	accountId: { type: Schema.Types.ObjectId, ref: "Account", required: true },
-	accountNumber: { type: String, required: true },
-	IBAN: { type: String, required: true }
+	accountId: {
+		type: Schema.Types.ObjectId,
+		ref: "Account",
+		required: [true, "Account id is required"]
+	},
+	accountNumber: {
+		type: String,
+		required: [true, "Account number is required"]
+	},
+	IBAN: {
+		type: String,
+		required: [true, "IBAN number is required"]
+	}
 });
 
 const userSchema = new Schema<UserSchema>(
